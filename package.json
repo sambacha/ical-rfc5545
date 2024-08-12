@@ -2,6 +2,7 @@
   "name": "ical-rfc5545",
   "displayName": "ical-rfc5545",
   "description": "ical RFC5545 syntax",
+  "license": "UPL-1.0",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
