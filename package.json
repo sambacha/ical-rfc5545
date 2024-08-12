@@ -1,0 +1,25 @@
+{
+  "name": "ical-rfc5545",
+  "displayName": "ical-rfc5545",
+  "description": "ical RFC5545 syntax",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "ical",
+      "aliases": ["ical rfc5545", "ical"],
+      "extensions": [".ics",".ical",".ifb"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "ical",
+      "scopeName": "source.ical",
+      "path": "./syntaxes/ical.tmLanguage.json"
+    }]
+  }
+}
