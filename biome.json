@@ -1,0 +1,6 @@
+{
+  "files": {
+    "include": ["scripts/**/*.js", "src/**/*.ts"],
+    "ignore": ["test/**/*.ts"]
+  }
+}

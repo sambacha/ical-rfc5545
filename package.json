@@ -11,16 +11,36 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "ical",
-      "aliases": ["ical rfc5545", "ical"],
-      "extensions": [".ics",".ical",".ifb"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "ical",
-      "scopeName": "source.ical",
-      "path": "./syntaxes/ical.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "ical",
+        "aliases": [
+          "ical rfc5545",
+          "ical"
+        ],
+        "extensions": [
+          ".ics",
+          ".ical",
+          ".ifb"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ical",
+        "scopeName": "source.ical",
+        "path": "./syntaxes/ical.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@fast-check/jest": "^2.0.1",
+    "@types/node": "^22.2.0",
+    "fast-check": "^3.21.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
   }
 }
