@@ -1,0 +1,98 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Septh/tmlanguage/master/tmLanguage.schema.json",
+    "name": "iCalendar",
+    "scopeName": "source.icalendar",
+    "fileTypes": ["ical", "icalendar", "ics", "ifb"],
+    "injectionSelector": "L:source -comment",
+    "semanticTokenTypes": [
+        { "name": "component", "superType": "class" },
+        { "name": "property", "superType": "property" },
+        { "name": "parameter", "superType": "parameter" },
+        { "name": "value", "superType": "variable" }
+    ],
+    "semanticTokenModifiers": [
+        "readonly",
+        "declaration",
+        "defaultLibrary"
+    ],
+    "patterns": [
+        { "include": "#component" },
+        { "include": "#property" },
+        { "include": "#parameter" },
+        { "include": "#value" },
+        { "include": "#comment" },
+        { "include": "#customProperty" },
+        { "include": "#setValue" }
+    ],
+    "repository": {
+        "component": {
+            "patterns": [
+                {
+                    "match": "^(BEGIN|END):(VCALENDAR|VEVENT|VTODO|VJOURNAL|VFREEBUSY|VTIMEZONE|VALARM|STANDARD|DAYLIGHT)$",
+                    "captures": {
+                        "1": { "name": "keyword.control.icalendar" },
+                        "2": { "name": "entity.name.type.icalendar" }
+                    }
+                }
+            ]
+        },
+        "property": {
+            "patterns": [
+                {
+                    "match": "^(DTSTART|DTEND|DUE|COMPLETED)(?=[:;])",
+                    "name": "variable.other.property.date.icalendar"
+                },
+                {
+                    "match": "^(SUMMARY|DESCRIPTION|LOCATION)(?=[:;])",
+                    "name": "variable.other.property.content.icalendar"
+                },
+                {
+                    "match": "^(PRODID|VERSION|CALSCALE|METHOD|DTSTAMP|ORGANIZER|UID|CLASS|CREATED|SEQUENCE|STATUS|COMMENT|TRANSP|ATTENDEE|ATTACH|FREEBUSY|CONTACT|DURATION|RRULE|EXDATE|EXRULE|URL|ACTION|LAST-MODIFIED|RECURRENCE-ID|TRIGGER|RELATED-TO|RDATE|TZID|TZOFFSETFROM|TZOFFSETTO|TZNAME|TZURL|PRIORITY|PERCENT-COMPLETE|CATEGORIES|RESOURCES|REPEAT|REQUEST-STATUS)(?=[:;])",
+                    "name": "variable.other.property.icalendar"
+                }
+            ]
+        },
+        "parameter": {
+            "match": "([A-Z0-9-]+)=([^;:]+)",
+            "captures": {
+                "1": { "name": "variable.parameter.icalendar" },
+                "2": { "name": "string.unquoted.parameter-value.icalendar" }
+            }
+        },
+        "value": {
+            "patterns": [
+                {
+                    "match": "[0-9]{8}T[0-9]{6}Z?",
+                    "name": "string.interpolated.icalDate"
+                },
+                {
+                    "match": "\\b(TRUE|FALSE)\\b",
+                    "name": "constant.language.boolean.icalendar"
+                },
+                {
+                    "begin": "\"",
+                    "end": "\"",
+                    "name": "string.quoted.double.icalendar",
+                    "patterns": [
+                        {
+                            "match": "\\\\.",
+                            "name": "constant.character.escape.icalendar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "comment": {
+            "match": "^X-.*",
+            "name": "comment.line.icalendar"
+        },
+        "customProperty": {
+            "match": "^X-[A-Z-]+",
+            "name": "keyword.other.icalCustom"
+        },
+        "setValue": {
+            "match": "\\b(CONFIRMED|TENTATIVE|CANCELLED|DELEGATED|OPAQUE|NEEDS-ACTION|ACCEPTED|DECLINED|IN-PROGRESS|PRIVATE|PUBLIC|PUBLISH|GREGORIAN|DISPLAY|COMPLETED)\\b",
+            "name": "constant.other.icalSetValue"
+        }
+    }
+}

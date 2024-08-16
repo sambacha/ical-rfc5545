@@ -43,6 +43,8 @@
     "typescript": "^5.5.4",
     "vitest": "^2.0.5",
     "vscode-languageserver": "^9.0.1",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.1.0",
     "vscode-tmgrammar-test": "^0.1.3"
   }
 }
