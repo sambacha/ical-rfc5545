@@ -3,7 +3,7 @@
   "displayName": "ical-rfc5545",
   "description": "ical RFC5545 syntax",
   "license": "UPL-1.0",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -11,16 +11,38 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "ical",
-      "aliases": ["ical rfc5545", "ical"],
-      "extensions": [".ics",".ical",".ifb"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "ical",
-      "scopeName": "source.ical",
-      "path": "./syntaxes/ical.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "ical",
+        "aliases": [
+          "ical rfc5545",
+          "ical"
+        ],
+        "extensions": [
+          ".ics",
+          ".ical",
+          ".ifb"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ical",
+        "scopeName": "source.ical",
+        "path": "./syntaxes/ical.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.15",
+    "mocha": "^10.7.3",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-tmgrammar-test": "^0.1.3"
   }
 }
